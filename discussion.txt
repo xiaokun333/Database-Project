@@ -1,0 +1,59 @@
+﻿601.315 Final Project Discussion
+
+Members:
+
+Michael Klisiwecz (mklisiw1)
+Xiaokun Yu (xyu61)
+
+
+Modifications:
+
+We remained fairly consistent to our original plans. During Phase A we sourced the data for COVID information that serves as the backbone of our final project. The questions we asked proved to be thourough and sufficiently challenging. Changes and adjustments made were almost entirely the result of constraints that came from programming implementation, and we found that we had more information than what was ultimately used for this project.
+
+
+Process (No changes from Phase C):
+
+State(name, abv, latitude, longitude, population):  
+Added abbreviation and population. Abbreviation was added to have a reference to vaccines, and population was added because data was not available for different years.
+ 
+State_cases(state, date, cases, deaths, case_fatality ratio): 
+state and date primary keys, state foreign key from State. Data came from https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_daily_reports_us. I chose to only grab data from the 1st of each month since each day was its own dataset. I combined them and selected necessary columns.
+Allowed insertion and deletion by user input
+
+State_gdp(state, 2020Q1, 2020Q2, 2020Q3, 2020Q4, 2021Q1 2021Q2, 2021Q3):
+state is the primary key, foreign key from State(name). Removed population and poli. Clim from this because they did not change with date. Kept organization of the data set of each date getting its own column, which allows for compactness. Data came from https://www.bea.gov/news/2021/gross-domestic-product-state-3rd-quarter-2021
+
+State_vaccines(Location,Date,Administered,Administered_12Plus,Administered_18Plus,Administered_65Plus,Fully_Vacced_Percent)
+Format of data required some changes. Location and date are primary keys. Age groups are given their own columns. Added Fully vaccinated percentages. Data source was
+https://data.cdc.gov/Vaccinations/COVID-19-Vaccinations-in-the-United-States-Jurisdi/unsk-b7fc
+
+Globall(country_name, date, latitude, longitude, population, cases, deaths, case_fatality_ratio): 
+Country, latitude, longitude come from https://github.com/albertyw/avenews/blame/master/old/data/average-latitude-longitude-countries.csv.
+I removed country code. There were no duplicates.
+Cases, deaths, case fatality ratio, date from WHO | World Health Organization
+I removed country code, source, new cases, percent cases sequenced, valid dominator and other columns that were not of interest. There were no need to remove duplicates since we want the cumulative cases and deaths on different days. I merged the two small tables of demography and covid data on country names. 
+Allowed insertion by user input.
+
+EU_variant(country, year_week, number_sequenced, variant):
+Everything from https://www.ecdc.europa.eu/en/publications-data/data-virus-variants-covid-19-eueea
+I changed the format of date to “MM-DD-Year”. I dropped country code, source, percent variant and other columns that were not of interest. Country name is the foreign key from global. 
+Allowed insertion and deletion by user input.
+
+EU_vaccine(country, vaccine_rate_cumulative):
+Everything from https://www.ecdc.europa.eu/en/publications-data/data-covid-19-vaccination-eu-eea.
+I converted the format of date to “MM-DD-Year” to be consistent with the date format in global. I only kept the number of doses received and removed all the details of first, second, and additional dose counts. Country name is the foreign key from global.  
+
+
+Successes:
+
+In a general sense we feel we did a good job extracting meaningful, analytical information from difficult to parse data. We feel confident that a layperson would have a good amount of success navigating and operating our website. In a more specific sense we feel that we did a good job using the tools learned in class to make comparisons of various factors with COVID cases.
+
+
+Known Issues:
+
+During Phase B we added a relation to our E-R diagram that made more general comparisons between the situations in states vs. the situations in countries. However, we found this to be simultaneously difficult to implement and not informative or necessary, so it was removed.
+Insertion and Deletion is slightly inconsistent. Try entering values of the form XX.XXX into the ratio box.
+
+Extensions:
+
+It would be cool to implement the automatic addition of new data into our tables. The data in our final project is from a month or two ago since that is when the data cleaning steps occurred. In the specific case of COVID daily information is available and dense. Our models could be much better with up to date information showing current trends (and even more ambitiously perhaps predicting future ones).

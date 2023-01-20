@@ -1,0 +1,124 @@
+<!-- ps.html Prepared Statement demo -->
+
+<html>
+   <body>
+     <h1>COVID-19 Data Visualizer</h1>
+	<h3>1. Look up US COVID monthly data by state from 06/2021 to 04/2022:</h3>
+	<form action="state_lookup.php" method="post">
+		State Name: <input type="text" name="item">
+		<input type="submit" value="Search">
+	</form>
+	<br/><br/>
+
+
+	<h3>2. When Did Each State Reach 1 Million Cases?</h3>
+	<form action="million_cases.php">
+		<input type="submit" value="Click me to look up!">
+	</form>
+	<br/><br/>
+
+	<h3>3. Which state has the highest rate of vaccination for 65 and older?</h3>
+        <form action="65vacc.php">
+                <input type="submit" value="Click me to look up!">
+        </form>
+        <br/><br/>
+
+       
+        <h3>4. Look up A Country's COVID Trend from 01/2020 to 04/2022:</h3>
+        <form action="global_lookup.php" method="post">
+                Country Name: <input type="text" name="item">
+                <input type="submit" value="Search">
+        </form>
+        <br/><br/>
+
+	<h3>5. Look up EU Country Variant Trend from 01/2020 to 03/2022:</h3>
+        <form action="eu_var_lookup.php" method="post">
+	        Country Name: <input type="text" name="item">
+                <input type="submit" value="Search">
+        </form>
+        <br/><br/>
+
+	<h3>6. Look up when Each State First Reach 50 Percent Vaccination:</h3>
+        <form action="state50vac.php" method="post">
+                <input type="submit" value="Click me to look up!">
+        </form>
+        <br/><br/>
+
+	<h3>7. Which State Had the Highest Increase in the First Week of 2022?</h3>
+        <form action="state_rate_increase.php" method="post">
+                <input type="submit" value="Click me to look up!">
+        </form>
+        <br/><br/>
+
+	<h3>8. Effect of COVID on Economic Standing of States: </h3>
+        <form action="gdp_change.php" method="post">
+                <input type="submit" value="Click me to look up!">
+        </form>
+        <br/><br/>
+
+	<h3>9. Which Country Has the Highest Death/Population Rate at What Time? </h3>
+        <form action="a1.php" method="post">
+                <input type="submit" value="Click me to look up!">
+        </form>
+        <br/><br/>
+
+	<h3>10. What Is the Most Pervasive Variant in Europe? What Is the Number of Cases? When? </h3>
+        <form action="a2.php" method="post">
+                <input type="submit" value="Click me to look up!">
+        </form>
+        <br/><br/>
+	   <h3>Enter new cases for a specific state</h3>
+    Fill out the following information. All information must be filled.
+    <form action="insertStateCases.php" method="post">
+      State:<input type="text" name="state">
+      Date:<input type="text" name="date">
+      Confirmed:<input type="text" name="confirmed">
+      Deaths:<input type="text" name="deaths">
+      Ratio:<input type="text" name="ratio">
+      <input type="submit">
+    </form>
+        
+
+   <h3>Enter new cases for a specific country</h3>
+    <form action="insertGlobalCases.php" method="post">
+      Country:<input type="text" name="country">
+      Date:<input type="text" name="date">
+      Confirmed:<input type="text" name="confirmed">
+      Deaths:<input type="text" name="deaths">
+      Ratio:<input type="text" name="ratio">
+      <input type="submit">
+    </form>
+
+
+   <h3>Enter new vaccination data for a specific country</h3>
+    <form action="insertVariantInfo.php" method="post">
+      Country:<input type="text" name="country">
+      Date:<input type="text" name="date">
+      Number Sequenced:<input type="text" name="sequenced">
+      Variant:<input type="text" name="variant">
+      <input type="submit">
+    </form>
+    <br></br>
+    
+    <h3>Delete Information for a specific US State and Date</h3>
+    Enter a state and date below.
+    <form action="deleteStateCases.php" method="post">
+      State:<input type="text" name="state">
+      Date:<input type="text" name="date">
+      <input type="submit">
+    </form>
+
+
+        <h3>Delete Information for a specific EU Country and date</h3>
+    Enter a country and date below.
+    <form action="deleteVariantCases.php" method="post">
+      Country:<input type="text" name="country">
+      Date:<input type="text" name="date">
+      <input type="submit">
+    </form>
+
+    <br><br/>
+
+
+   </body>
+</html>

@@ -1,0 +1,6 @@
+Install Notes
+Michael Klisiwecz (mklisiw1)
+Xiaokun Yu (xyu61)
+
+No special instructions needed
+Run cleanup.sql to clean all tables and procedures.
